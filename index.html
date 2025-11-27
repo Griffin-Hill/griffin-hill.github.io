@@ -1,146 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Griffin Hill | Engineering Portfolio</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        /* ------------------------------------------------------ */
-        /* DARK MODE THEME */
-        /* ------------------------------------------------------ */
+        /* ================================
+           GLOBAL STYLE
+        ================================= */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d1117;
-            color: #e6edf3;
-            line-height: 1.6;
+            background: #0a0f14;
+            color: #e3e8ef;
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
         }
 
-        header {
-            background: #161b22;
-            color: #e6edf3;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 2px solid #30363d;
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 42px;
+        a {
+            color: #58a6ff;
+            text-decoration: none;
         }
 
-        header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
+        /* ================================
+           NAVIGATION
+        ================================= */
         nav {
-            background: #1f2933;
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #30363d;
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 32, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 999;
         }
 
         nav a {
-            color: #58a6ff;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
+            color: #bcd0e9;
+            font-weight: 600;
+            padding-bottom: 4px;
+            transition: 0.2s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #fff;
+            border-bottom: 2px solid #58a6ff;
         }
 
+        /* ================================
+           HERO SECTION
+        ================================= */
+        header {
+            text-align: center;
+            padding: 90px 20px;
+            background: linear-gradient(140deg, #0a0f14, #102030);
+        }
+
+        header h1 {
+            font-size: 52px;
+            margin: 0;
+            background: linear-gradient(90deg, #58a6ff, #4ea7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            opacity: 0.85;
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        /* ================================
+           SECTION WRAPPER
+        ================================= */
         section {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 60px auto;
             padding: 0 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
             color: #58a6ff;
-            border-bottom: 2px solid #30363d;
-            padding-bottom: 8px;
         }
 
+        /* ================================
+           SKILL TAGS
+        ================================= */
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skill-box {
-            background: #21262d;
-            color: #e6edf3;
-            padding: 8px 14px;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 16px;
             border-radius: 8px;
             font-size: 14px;
-            border: 1px solid #30363d;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.2s;
         }
 
-        /* ------------------------------------------------------ */
-        /* PROJECT DROPDOWN CARDS */
-        /* ------------------------------------------------------ */
+        .skill-box:hover {
+            background: rgba(88,166,255,0.15);
+            transform: scale(1.05);
+        }
+
+        /* ================================
+           GLASS CARD PROJECTS
+        ================================= */
         .project-card {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-radius: 14px;
+            padding: 24px;
             margin-bottom: 20px;
-            border: 1px solid #30363d;
+            transition: 0.3s;
         }
 
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(88,166,255,0.4);
+        }
+
+        /* ================================
+           DROPDOWNS
+        ================================= */
         .project-header {
             display: flex;
             justify-content: space-between;
             cursor: pointer;
         }
 
-        .project-header h3 {
-            margin: 0;
-        }
-
         .dropdown-arrow {
-            font-size: 24px;
-            transition: 0.3s;
+            font-size: 28px;
+            transition: 0.3s ease;
         }
 
         .dropdown-content {
             display: none;
             margin-top: 15px;
-            animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.4s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ------------------------------------------------------ */
-        /* FOOTER */
-        /* ------------------------------------------------------ */
+        /* ================================
+           FOOTER
+        ================================= */
         footer {
-            background: #161b22;
-            color: #e6edf3;
+            margin-top: 80px;
+            padding: 30px;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid #30363d;
+            color: #7c8797;
+            font-size: 14px;
         }
     </style>
 
     <script>
-        /* Dropdown JS */
         function toggleDropdown(id) {
-            const content = document.getElementById(id);
+            const el = document.getElementById(id);
             const arrow = document.getElementById(id + "-arrow");
 
-            if (content.style.display === "block") {
-                content.style.display = "none";
+            if (el.style.display === "block") {
+                el.style.display = "none";
                 arrow.style.transform = "rotate(0deg)";
             } else {
-                content.style.display = "block";
+                el.style.display = "block";
                 arrow.style.transform = "rotate(90deg)";
             }
         }
@@ -151,7 +195,7 @@
 
 <header>
     <h1>Griffin Hill</h1>
-    <p>Computer Engineering & Mathematics Student | Embedded Systems | Electronics | Signal Processing</p>
+    <p>Embedded Systems • Electronics • Control Theory • Computer Engineering Student</p>
 </header>
 
 <nav>
@@ -163,12 +207,7 @@
 
 <section id="about">
     <h2>About Me</h2>
-    <p>
-        I am a senior Computer Engineering, Computer Science, and Mathematics student at the University of Oklahoma,
-        specializing in embedded systems, analog/digital electronics, and control systems.
-        I enjoy designing full-stack hardware solutions—from circuit simulation to PCB design
-        to firmware development on the LPC1768 microcontroller.
-    </p>
+    <p>I’m a Computer Engineering & Mathematics student at the University of Oklahoma with a strong focus in embedded systems, PCB design, analog/digital electronics, and signal processing.</p>
 </section>
 
 <section id="skills">
@@ -176,129 +215,69 @@
     <div class="skills">
         <div class="skill-box">Embedded C/C++</div>
         <div class="skill-box">Mbed OS 6</div>
-        <div class="skill-box">SPI / I2C / PWM</div>
-        <div class="skill-box">Circuit Design</div>
-        <div class="skill-box">Multisim Simulation</div>
-        <div class="skill-box">PCB Layout (Eagle/Fusion)</div>
-        <div class="skill-box">MATLAB & Simulink</div>
+        <div class="skill-box">SPI / I²C / PWM</div>
+        <div class="skill-box">MATLAB</div>
+        <div class="skill-box">Multisim</div>
+        <div class="skill-box">PCB Design</div>
         <div class="skill-box">Java</div>
-        <div class="skill-box">Linear Algebra</div>
         <div class="skill-box">Signal Processing</div>
-        <div class="skill-box">Oscilloscope & DMM</div>
-        <div class="skill-box">Git/GitHub</div>
+        <div class="skill-box">Linear Algebra</div>
+        <div class="skill-box">Control Theory</div>
     </div>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
 
-    <!-- PROJECT 1 -->
+    <!-- PROJECT TEMPLATE -->
     <div class="project-card">
         <div class="project-header" onclick="toggleDropdown('p1')">
-            <h3>Portable Solar Adapter – 5V Regulated Output (Custom PCB)</h3>
+            <h3>Portable Solar Adapter – Custom PCB</h3>
             <div id="p1-arrow" class="dropdown-arrow">▶</div>
         </div>
-
         <div id="p1" class="dropdown-content">
-            <p><strong>Spring 2025 – ECE 3773 Circuits Lab</strong></p>
-            <p>
-                Designed a 3"×3" PCB that regulates a 6–12V solar input to a stable 5V output.
-                Included MOSFET current limiting (BS170), Zener diode regulation (1N5230),
-                and an LED charge indicator. Verified using oscilloscopes and load tests.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">PCB Report (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">Schematic Image</a></li>
-                <li><a href="#" style="color:#58a6ff;">Testing Photos</a></li>
-            </ul>
+            <p>Designed a 5V-regulated PCB using Zener diodes, BS170 MOSFET, and oscilloscope-verified load regulation.</p>
         </div>
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="project-card">
         <div class="project-header" onclick="toggleDropdown('p2')">
-            <h3>Reaction Time Game – Interrupt-Based Embedded System</h3>
+            <h3>Reaction Time Game – Interrupt-Based</h3>
             <div id="p2-arrow" class="dropdown-arrow">▶</div>
         </div>
-
         <div id="p2" class="dropdown-content">
-            <p><strong>Fall 2025 – Embedded Software Project</strong></p>
-            <p>
-                Built a two-player reaction game using InterruptIn, Timers, 
-                LED outputs, and debounced input logic with early-press detection. 
-                Developed detailed timing logic for microsecond response measurement.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Full Source Code</a></li>
-                <li><a href="#" style="color:#58a6ff;">Wiring Diagram</a></li>
-                <li><a href="#" style="color:#58a6ff;">Demo Video</a></li>
-            </ul>
+            <p>A 2-player competitive embedded system using InterruptIn, timers, LED logic, and early-press detection.</p>
         </div>
     </div>
 
-    <!-- PROJECT 3 -->
     <div class="project-card">
         <div class="project-header" onclick="toggleDropdown('p3')">
-            <h3>Light Dimmer Controller – SPI, I²C, PWM Integration</h3>
+            <h3>Light Dimmer Controller – SPI + I²C + PWM</h3>
             <div id="p3-arrow" class="dropdown-arrow">▶</div>
         </div>
-
         <div id="p3" class="dropdown-content">
-            <p><strong>Fall 2025 – Mbed OS Assignment</strong></p>
-            <p>
-                Integrated 74HC595 (SPI output), 74HC165 (SPI input), EEPROM (I²C),
-                and PWM for LED brightness control. Implemented persistent settings 
-                stored in EEPROM and custom 7-segment display encoding.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Code Repository</a></li>
-                <li><a href="#" style="color:#58a6ff;">7-Segment Pattern Table (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">Circuit Build Photos</a></li>
-            </ul>
+            <p>Integrated multiple communication protocols to control a 7-segment display, read switch inputs, and store brightness.</p>
         </div>
     </div>
 
-    <!-- PROJECT 4 -->
     <div class="project-card">
         <div class="project-header" onclick="toggleDropdown('p4')">
-            <h3>AM Demodulation Toolkit – MATLAB + Fourier Analysis</h3>
+            <h3>AM Demodulation Toolkit – MATLAB</h3>
             <div id="p4-arrow" class="dropdown-arrow">▶</div>
         </div>
-
         <div id="p4" class="dropdown-content">
-            <p><strong>Fall 2025 – Signal Processing Project</strong></p>
-            <p>
-                Implemented FFT-based analysis, low-pass filtering, and envelope detection
-                to demodulate hidden AM audio signals. Produced full mathematical derivations 
-                and generated recovered audio plots.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Final Report (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">MATLAB Scripts</a></li>
-                <li><a href="#" style="color:#58a6ff;">Spectrogram Images</a></li>
-            </ul>
+            <p>Mathematically analyzed and demodulated AM radio signals using FFT, low-pass filters, and envelope extraction.</p>
         </div>
     </div>
-
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: <strong>[your email]</strong></p>
-    <p>LinkedIn: <strong>[your link]</strong></p>
-    <p>GitHub: <strong>[your link]</strong></p>
 </section>
 
 <footer>
-    <p>© 2025 Griffin Hill — Engineering Portfolio</p>
+    © 2025 Griffin Hill — Engineering Portfolio
 </footer>
 
 </body>
