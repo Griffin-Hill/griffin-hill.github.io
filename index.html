@@ -229,46 +229,107 @@
 <section id="projects">
     <h2>Projects</h2>
 
-    <!-- PROJECT TEMPLATE -->
+    <!-- LINE-FOLLOWING ROBOT -->
     <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p1')">
-            <h3>Portable Solar Adapter – Custom PCB</h3>
-            <div id="p1-arrow" class="dropdown-arrow">▶</div>
+        <div class="project-header" onclick="toggleDropdown('robot')">
+            <h3>Analog Line-Following Robot – Multi-Phase Design</h3>
+            <div id="robot-arrow" class="dropdown-arrow">▶</div>
         </div>
-        <div id="p1" class="dropdown-content">
-            <p>Designed a 5V-regulated PCB using Zener diodes, BS170 MOSFET, and oscilloscope-verified load regulation.</p>
+        <div id="robot" class="dropdown-content">
+            <p>
+                Designed an analog line-tracing robot built using photodiodes/phototransistors,
+                op-amp comparators, motor drivers, and a multi-stage control system.
+                The robot detects a black electrical tape track, adjusts steering through the differential
+                motor control, and stabilizes direction in real time without microcontrollers.
+            </p>
+            <ul>
+                <li><a href="#">Circuit Schematics (PDF)</a></li>
+                <li><a href="#">Testing Video</a></li>
+                <li><a href="#">Sensor Calibration Notes</a></li>
+            </ul>
         </div>
     </div>
 
+    <!-- PID CRUISE CONTROL SIMULATOR -->
     <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p2')">
-            <h3>Reaction Time Game – Interrupt-Based</h3>
-            <div id="p2-arrow" class="dropdown-arrow">▶</div>
+        <div class="project-header" onclick="toggleDropdown('pid')">
+            <h3>PID-Controlled Cruise Control Simulator – Analog System</h3>
+            <div id="pid-arrow" class="dropdown-arrow">▶</div>
         </div>
-        <div id="p2" class="dropdown-content">
-            <p>A 2-player competitive embedded system using InterruptIn, timers, LED logic, and early-press detection.</p>
+        <div id="pid" class="dropdown-content">
+            <p>
+                Built an analog cruise control simulator using op-amps to implement proportional,
+                integral, and derivative control blocks. The system dynamically stabilizes vehicle speed,
+                compensates for “hills” and disturbances, and demonstrates classical control theory in hardware.
+            </p>
+            <ul>
+                <li><a href="#">Final Report (PDF)</a></li>
+                <li><a href="#">Bode/Step Response Plots</a></li>
+                <li><a href="#">Multisim Simulation Files</a></li>
+            </ul>
         </div>
     </div>
 
+    <!-- ZENER DIODE REGULATOR -->
     <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p3')">
-            <h3>Light Dimmer Controller – SPI + I²C + PWM</h3>
-            <div id="p3-arrow" class="dropdown-arrow">▶</div>
+        <div class="project-header" onclick="toggleDropdown('zener')">
+            <h3>Zener Diode Voltage Regulator – 5V Solar Adapter PCB</h3>
+            <div id="zener-arrow" class="dropdown-arrow">▶</div>
         </div>
-        <div id="p3" class="dropdown-content">
-            <p>Integrated multiple communication protocols to control a 7-segment display, read switch inputs, and store brightness.</p>
+        <div id="zener" class="dropdown-content">
+            <p>
+                Designed a voltage-regulated PCB using the 1N5230 Zener diode to regulate 6–12V solar input
+                down to 5V with a BS170 MOSFET current limiter. Completed schematic simulation, board layout,
+                PCB fabrication, load testing, and oscilloscope-based validation of regulation performance.
+            </p>
+            <ul>
+                <li><a href="#">PCB Report (PDF)</a></li>
+                <li><a href="#">Fabricated Board Images</a></li>
+                <li><a href="#">Oscilloscope Load Tests</a></li>
+            </ul>
         </div>
     </div>
 
+    <!-- DIGITAL THERMOMETER -->
     <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p4')">
-            <h3>AM Demodulation Toolkit – MATLAB</h3>
-            <div id="p4-arrow" class="dropdown-arrow">▶</div>
+        <div class="project-header" onclick="toggleDropdown('thermo')">
+            <h3>Digital Thermometer – LPC1768 + MCP9701</h3>
+            <div id="thermo-arrow" class="dropdown-arrow">▶</div>
         </div>
-        <div id="p4" class="dropdown-content">
-            <p>Mathematically analyzed and demodulated AM radio signals using FFT, low-pass filters, and envelope extraction.</p>
+        <div id="thermo" class="dropdown-content">
+            <p>
+                Built a digital thermometer using an MCP9701 analog temperature sensor and an LPC1768 microcontroller.
+                Implemented ADC sampling, scaling conversions, Celsius/Fahrenheit computation, and multi-LED
+                temperature range indication. Included calibration, filtering, and user interface logic.
+            </p>
+            <ul>
+                <li><a href="#">Source Code</a></li>
+                <li><a href="#">Sensor Calibration Curve</a></li>
+                <li><a href="#">Measurement Demonstration</a></li>
+            </ul>
         </div>
     </div>
+
+    <!-- BRIGHTNESS CONTROLLER -->
+    <div class="project-card">
+        <div class="project-header" onclick="toggleDropdown('brightness')">
+            <h3>Brightness Controller – SPI, I²C, PWM, 7-Segment Display</h3>
+            <div id="brightness-arrow" class="dropdown-arrow">▶</div>
+        </div>
+        <div id="brightness" class="dropdown-content">
+            <p>
+                Developed a full embedded dimmer system featuring SPI output via a 74HC595 shift register,
+                SPI input via a 74HC165 for button reading, I²C EEPROM state storage, and PWM-based LED brightness control.
+                Included custom 7-segment display encoding and persistent brightness memory.
+            </p>
+            <ul>
+                <li><a href="#">Source Code</a></li>
+                <li><a href="#">EEPROM Data Structure (PDF)</a></li>
+                <li><a href="#">Hardware Photos</a></li>
+            </ul>
+        </div>
+    </div>
+
 </section>
 
 <section id="contact">
