@@ -1,229 +1,263 @@
-/* ============================================
-   GLOBAL
-============================================ */
-* {
-    margin: 0;
-    padding: 0;
+/* ------------------------------------------------------ */
+/* GLOBAL + DARK THEME */
+/* ------------------------------------------------------ */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #0a0f14;
-    color: #e3e8ef;
-    font-family: "Inter", sans-serif;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background-color: #020617; /* very dark */
+    color: #e6edf3;
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
-/* Smooth fade animations */
-section {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================
-   NAVBAR
-============================================ */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: rgba(15, 23, 32, 0.7);
-    backdrop-filter: blur(12px);
-    padding: 14px 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-nav a {
-    color: #bcd0e9;
-    text-decoration: none;
-    font-weight: 600;
-    padding-bottom: 4px;
-    transition: 0.3s ease;
-}
-
-nav a:hover {
-    color: #fff;
-    border-bottom: 2px solid #58a6ff;
-}
-
-/* ============================================
-   HERO HEADER
-============================================ */
+/* ------------------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------------------ */
 header {
+    background: radial-gradient(circle at top left, #1f2937, #020617 60%);
+    color: #e6edf3;
+    border-bottom: 1px solid #1e293b;
+}
+
+.header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 30px;
     text-align: center;
-    padding: 100px 20px 80px;
-    background: linear-gradient(140deg, #0a0f14, #102030);
 }
 
 header h1 {
-    font-size: 55px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #58a6ff, #4ea7ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
+    margin: 0;
+    font-size: clamp(2.2rem, 3vw, 2.8rem);
+    letter-spacing: 0.05em;
 }
 
 header p {
-    margin-top: 10px;
-    opacity: 0.85;
-    font-size: 18px;
+    margin-top: 12px;
+    font-size: 0.98rem;
+    opacity: 0.9;
 }
 
-/* ============================================
-   SECTION TITLES
-============================================ */
-h2 {
-    color: #58a6ff;
-    font-size: 32px;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
+/* ------------------------------------------------------ */
+/* NAVBAR */
+/* ------------------------------------------------------ */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1f2937;
 }
 
-/* ============================================
-   SKILLS
-============================================ */
+.nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9ca3af;
+}
+
+.nav-links a {
+    color: #cbd5f5;
+    margin-left: 18px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.nav-links a:hover {
+    background: #1d4ed8;
+    color: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+/* Mobile nav adjustment */
+@media (max-width: 640px) {
+    .nav-inner {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* ------------------------------------------------------ */
+/* SECTIONS */
+/* ------------------------------------------------------ */
+.section {
+    padding: 40px 20px 0;
+}
+
+.section-inner {
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    background: #020617;
+    border-radius: 18px;
+    border: 1px solid #111827;
+    padding: 24px 20px 28px;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.8);
+}
+
+.section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #60a5fa;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #1f2937;
+    padding-bottom: 6px;
+}
+
+.section p {
+    margin: 0.35rem 0;
+    color: #e5e7eb;
+}
+
+/* ------------------------------------------------------ */
+/* SKILLS */
+/* ------------------------------------------------------ */
 .skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
+    margin-top: 8px;
 }
 
 .skill-box {
-    background: rgba(255,255,255,0.05);
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px;
-    transition: 0.2s ease;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid #1f2937;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+    white-space: nowrap;
 }
 
-.skill-box:hover {
-    background: rgba(88,166,255,0.15);
-    transform: scale(1.07);
-}
-
-/* ============================================
-   PROJECT CARDS (Glassmorphism)
-============================================ */
+/* ------------------------------------------------------ */
+/* PROJECT CARDS */
+/* ------------------------------------------------------ */
 .project-card {
-    background: rgba(255,255,255,0.04);
-    padding: 25px;
-    border-radius: 14px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.4);
-    backdrop-filter: blur(8px);
-    transition: 0.35s ease;
+    background: #020617;
+    padding: 18px 16px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    border: 1px solid #111827;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.85);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    border: 1px solid rgba(88,166,255,0.5);
-    box-shadow: 0 10px 30px rgba(88,166,255,0.2);
+    transform: translateY(-3px);
+    border-color: #1d4ed8;
+    box-shadow: 0 24px 45px rgba(15, 23, 42, 1);
 }
 
 .project-header {
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
     align-items: center;
+    cursor: pointer;
+    gap: 16px;
 }
 
 .project-header h3 {
-    font-size: 22px;
-    font-weight: 600;
+    margin: 0;
+    font-size: 1.05rem;
+    color: #e5e7eb;
 }
 
-/* Dropdown arrow animation */
+.project-meta {
+    margin: 4px 0 0;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
 .dropdown-arrow {
-    font-size: 28px;
-    transition: transform 0.3s ease;
+    font-size: 1.35rem;
+    transition: transform 0.25s ease;
+    color: #9ca3af;
 }
 
-/* ============================================
-   DROPDOWN CONTENT
-============================================ */
+/* Hidden content initially */
 .dropdown-content {
     display: none;
-    margin-top: 15px;
-    animation: dropdownFade 0.4s ease;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    animation: fadeIn 0.25s ease-in-out;
 }
 
-@keyframes dropdownFade {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
+.attached-title {
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #93c5fd;
 }
 
-.dropdown-content ul {
-    margin-top: 10px;
-    margin-left: 20px;
+.attachment-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
-.dropdown-content li {
-    padding: 4px 0;
+.attachment-list li {
+    margin-bottom: 4px;
 }
 
-/* ============================================
-   LINKS
-============================================ */
-a {
-    color: #58a6ff;
+.attachment-list a {
+    color: #60a5fa;
     text-decoration: none;
-    transition: 0.2s ease;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-a:hover {
-    color: #8bc0ff;
+.attachment-list a:hover {
+    color: #93c5fd;
+    border-color: #93c5fd;
 }
 
-/* ============================================
-   CONTACT SECTION
-============================================ */
-#contact p {
-    font-size: 18px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================
-   FOOTER
-============================================ */
+/* ------------------------------------------------------ */
+/* CONTACT */
+/* ------------------------------------------------------ */
+#contact strong {
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+/* ------------------------------------------------------ */
+/* FOOTER */
+/* ------------------------------------------------------ */
 footer {
-    margin-top: 80px;
+    background: #020617;
+    color: #6b7280;
     text-align: center;
-    padding: 25px;
-    color: #8b9aa7;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-/* ============================================
-   RESPONSIVE DESIGN (Mobile Optimized)
-============================================ */
-@media (max-width: 900px) {
-    header h1 {
-        font-size: 42px;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    header h1 {
-        font-size: 36px;
-    }
-
-    .project-card {
-        padding: 20px;
-    }
+    padding: 18px 12px 28px;
+    margin-top: 32px;
+    border-top: 1px solid #111827;
+    font-size: 0.82rem;
 }
