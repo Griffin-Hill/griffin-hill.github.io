@@ -5,133 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Griffin Hill | Engineering Portfolio</title>
 
-    <style>
-        /* ------------------------------------------------------ */
-        /* DARK MODE THEME */
-        /* ------------------------------------------------------ */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d1117;
-            color: #e6edf3;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #161b22;
-            color: #e6edf3;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 2px solid #30363d;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 42px;
-        }
-
-        header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        nav {
-            background: #1f2933;
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #30363d;
-        }
-
-        nav a {
-            color: #58a6ff;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            color: #58a6ff;
-            border-bottom: 2px solid #30363d;
-            padding-bottom: 8px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-box {
-            background: #21262d;
-            color: #e6edf3;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 14px;
-            border: 1px solid #30363d;
-        }
-
-        /* ------------------------------------------------------ */
-        /* PROJECT DROPDOWN CARDS */
-        /* ------------------------------------------------------ */
-        .project-card {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #30363d;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .project-header h3 {
-            margin: 0;
-        }
-
-        .dropdown-arrow {
-            font-size: 24px;
-            transition: 0.3s;
-        }
-
-        .dropdown-content {
-            display: none;
-            margin-top: 15px;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ------------------------------------------------------ */
-        /* FOOTER */
-        /* ------------------------------------------------------ */
-        footer {
-            background: #161b22;
-            color: #e6edf3;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid #30363d;
-        }
-    </style>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="styles.css" />
 
     <script>
-        /* Dropdown JS */
+        // Dropdown JS
         function toggleDropdown(id) {
             const content = document.getElementById(id);
             const arrow = document.getElementById(id + "-arrow");
@@ -150,152 +28,177 @@
 <body>
 
 <header>
-    <h1>Griffin Hill</h1>
-    <p>Computer Engineering & Mathematics Student | Embedded Systems | Electronics | Signal Processing</p>
+    <div class="header-inner">
+        <h1>Griffin Hill</h1>
+        <p>Computer Engineering & Mathematics Student | Embedded Systems | Electronics | Signal Processing</p>
+    </div>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-inner">
+        <div class="nav-brand">Portfolio</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
 </nav>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a senior Computer Engineering, Computer Science, and Mathematics student at the University of Oklahoma,
-        specializing in embedded systems, analog/digital electronics, and control systems.
-        I enjoy designing full-stack hardware solutions—from circuit simulation to PCB design
-        to firmware development on the LPC1768 microcontroller.
-    </p>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill-box">Embedded C/C++</div>
-        <div class="skill-box">Mbed OS 6</div>
-        <div class="skill-box">SPI / I2C / PWM</div>
-        <div class="skill-box">Circuit Design</div>
-        <div class="skill-box">Multisim Simulation</div>
-        <div class="skill-box">PCB Layout (Eagle/Fusion)</div>
-        <div class="skill-box">MATLAB & Simulink</div>
-        <div class="skill-box">Java</div>
-        <div class="skill-box">Linear Algebra</div>
-        <div class="skill-box">Signal Processing</div>
-        <div class="skill-box">Oscilloscope & DMM</div>
-        <div class="skill-box">Git/GitHub</div>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <!-- PROJECT 1 -->
-    <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p1')">
-            <h3>Portable Solar Adapter – 5V Regulated Output (Custom PCB)</h3>
-            <div id="p1-arrow" class="dropdown-arrow">▶</div>
-        </div>
-
-        <div id="p1" class="dropdown-content">
-            <p><strong>Spring 2025 – ECE 3773 Circuits Lab</strong></p>
+<main>
+    <section id="about" class="section">
+        <div class="section-inner">
+            <h2>About Me</h2>
             <p>
-                Designed a 3"×3" PCB that regulates a 6–12V solar input to a stable 5V output.
-                Included MOSFET current limiting (BS170), Zener diode regulation (1N5230),
-                and an LED charge indicator. Verified using oscilloscopes and load tests.
+                I am a senior Computer Engineering, Computer Science, and Mathematics student at the University of Oklahoma,
+                specializing in embedded systems, analog/digital electronics, and control systems.
+                I enjoy designing full-stack hardware solutions—from circuit simulation to PCB design
+                to firmware development on the LPC1768 microcontroller.
             </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">PCB Report (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">Schematic Image</a></li>
-                <li><a href="#" style="color:#58a6ff;">Testing Photos</a></li>
-            </ul>
         </div>
-    </div>
+    </section>
 
-    <!-- PROJECT 2 -->
-    <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p2')">
-            <h3>Reaction Time Game – Interrupt-Based Embedded System</h3>
-            <div id="p2-arrow" class="dropdown-arrow">▶</div>
+    <section id="skills" class="section">
+        <div class="section-inner">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill-box">Embedded C/C++</div>
+                <div class="skill-box">Mbed OS 6</div>
+                <div class="skill-box">SPI / I2C / PWM</div>
+                <div class="skill-box">Circuit Design</div>
+                <div class="skill-box">Multisim Simulation</div>
+                <div class="skill-box">PCB Layout (Eagle/Fusion)</div>
+                <div class="skill-box">MATLAB & Simulink</div>
+                <div class="skill-box">Java</div>
+                <div class="skill-box">Linear Algebra</div>
+                <div class="skill-box">Signal Processing</div>
+                <div class="skill-box">Oscilloscope & DMM</div>
+                <div class="skill-box">Git/GitHub</div>
+            </div>
         </div>
+    </section>
 
-        <div id="p2" class="dropdown-content">
-            <p><strong>Fall 2025 – Embedded Software Project</strong></p>
-            <p>
-                Built a two-player reaction game using InterruptIn, Timers, 
-                LED outputs, and debounced input logic with early-press detection. 
-                Developed detailed timing logic for microsecond response measurement.
-            </p>
+    <section id="projects" class="section">
+        <div class="section-inner">
+            <h2>Projects</h2>
 
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Full Source Code</a></li>
-                <li><a href="#" style="color:#58a6ff;">Wiring Diagram</a></li>
-                <li><a href="#" style="color:#58a6ff;">Demo Video</a></li>
-            </ul>
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleDropdown('p1')">
+                    <div>
+                        <h3>Portable Solar Adapter – 5V Regulated Output (Custom PCB)</h3>
+                        <p class="project-meta">Spring 2025 · ECE 3773 Circuits Lab</p>
+                    </div>
+                    <div id="p1-arrow" class="dropdown-arrow">▶</div>
+                </div>
+
+                <div id="p1" class="dropdown-content">
+                    <p>
+                        Designed a 3"×3" PCB that regulates a 6–12V solar input to a stable 5V output.
+                        Included MOSFET current limiting (BS170), Zener diode regulation (1N5230),
+                        and an LED charge indicator. Verified using oscilloscopes and load tests.
+                    </p>
+
+                    <p class="attached-title">Attached Files</p>
+                    <ul class="attachment-list">
+                        <li><a href="#">PCB Report (PDF)</a></li>
+                        <li><a href="#">Schematic Image</a></li>
+                        <li><a href="#">Testing Photos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleDropdown('p2')">
+                    <div>
+                        <h3>Reaction Time Game – Interrupt-Based Embedded System</h3>
+                        <p class="project-meta">Fall 2025 · Embedded Software Project</p>
+                    </div>
+                    <div id="p2-arrow" class="dropdown-arrow">▶</div>
+                </div>
+
+                <div id="p2" class="dropdown-content">
+                    <p>
+                        Built a two-player reaction game using InterruptIn, Timers, 
+                        LED outputs, and debounced input logic with early-press detection. 
+                        Developed detailed timing logic for microsecond response measurement.
+                    </p>
+
+                    <p class="attached-title">Attached Files</p>
+                    <ul class="attachment-list">
+                        <li><a href="#">Full Source Code</a></li>
+                        <li><a href="#">Wiring Diagram</a></li>
+                        <li><a href="#">Demo Video</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleDropdown('p3')">
+                    <div>
+                        <h3>Light Dimmer Controller – SPI, I²C, PWM Integration</h3>
+                        <p class="project-meta">Fall 2025 · Mbed OS Assignment</p>
+                    </div>
+                    <div id="p3-arrow" class="dropdown-arrow">▶</div>
+                </div>
+
+                <div id="p3" class="dropdown-content">
+                    <p>
+                        Integrated 74HC595 (SPI output), 74HC165 (SPI input), EEPROM (I²C),
+                        and PWM for LED brightness control. Implemented persistent settings 
+                        stored in EEPROM and custom 7-segment display encoding.
+                    </p>
+
+                    <p class="attached-title">Attached Files</p>
+                    <ul class="attachment-list">
+                        <li><a href="#">Code Repository</a></li>
+                        <li><a href="#">7-Segment Pattern Table (PDF)</a></li>
+                        <li><a href="#">Circuit Build Photos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleDropdown('p4')">
+                    <div>
+                        <h3>AM Demodulation Toolkit – MATLAB + Fourier Analysis</h3>
+                        <p class="project-meta">Fall 2025 · Signal Processing Project</p>
+                    </div>
+                    <div id="p4-arrow" class="dropdown-arrow">▶</div>
+                </div>
+
+                <div id="p4" class="dropdown-content">
+                    <p>
+                        Implemented FFT-based analysis, low-pass filtering, and envelope detection
+                        to demodulate hidden AM audio signals. Produced full mathematical derivations 
+                        and generated recovered audio plots.
+                    </p>
+
+                    <p class="attached-title">Attached Files</p>
+                    <ul class="attachment-list">
+                        <li><a href="#">Final Report (PDF)</a></li>
+                        <li><a href="#">MATLAB Scripts</a></li>
+                        <li><a href="#">Spectrogram Images</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 
-    <!-- PROJECT 3 -->
-    <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p3')">
-            <h3>Light Dimmer Controller – SPI, I²C, PWM Integration</h3>
-            <div id="p3-arrow" class="dropdown-arrow">▶</div>
+    <section id="contact" class="section">
+        <div class="section-inner">
+            <h2>Contact</h2>
+            <p>Email: <strong>[your email]</strong></p>
+            <p>LinkedIn: <strong>[your link]</strong></p>
+            <p>GitHub: <strong>[your link]</strong></p>
         </div>
-
-        <div id="p3" class="dropdown-content">
-            <p><strong>Fall 2025 – Mbed OS Assignment</strong></p>
-            <p>
-                Integrated 74HC595 (SPI output), 74HC165 (SPI input), EEPROM (I²C),
-                and PWM for LED brightness control. Implemented persistent settings 
-                stored in EEPROM and custom 7-segment display encoding.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Code Repository</a></li>
-                <li><a href="#" style="color:#58a6ff;">7-Segment Pattern Table (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">Circuit Build Photos</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- PROJECT 4 -->
-    <div class="project-card">
-        <div class="project-header" onclick="toggleDropdown('p4')">
-            <h3>AM Demodulation Toolkit – MATLAB + Fourier Analysis</h3>
-            <div id="p4-arrow" class="dropdown-arrow">▶</div>
-        </div>
-
-        <div id="p4" class="dropdown-content">
-            <p><strong>Fall 2025 – Signal Processing Project</strong></p>
-            <p>
-                Implemented FFT-based analysis, low-pass filtering, and envelope detection
-                to demodulate hidden AM audio signals. Produced full mathematical derivations 
-                and generated recovered audio plots.
-            </p>
-
-            <p><strong>Attached Files:</strong></p>
-            <ul>
-                <li><a href="#" style="color:#58a6ff;">Final Report (PDF)</a></li>
-                <li><a href="#" style="color:#58a6ff;">MATLAB Scripts</a></li>
-                <li><a href="#" style="color:#58a6ff;">Spectrogram Images</a></li>
-            </ul>
-        </div>
-    </div>
-
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <strong>[your email]</strong></p>
-    <p>LinkedIn: <strong>[your link]</strong></p>
-    <p>GitHub: <strong>[your link]</strong></p>
-</section>
+    </section>
+</main>
 
 <footer>
     <p>© 2025 Griffin Hill — Engineering Portfolio</p>
