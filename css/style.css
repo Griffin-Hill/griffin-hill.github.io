@@ -241,6 +241,90 @@ nav {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* =============================== */
+/* TOOLS & TECHNOLOGIES SECTION    */
+/* =============================== */
+
+.tech-category {
+    margin-bottom: 32px;
+}
+
+.tech-category h3 {
+    margin-bottom: 10px;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-item {
+    padding: 8px 14px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* ====================================== */
+/*  Tools and Technologies Icon Styling   */
+/* ====================================== */
+
+.tech-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    color: #1f2937;
+}
+
+.tech-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid #1f2937;
+    white-space: nowrap;
+
+    /* Exact shadow from skills */
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+
+    /* Animation to match Skills behavior */
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #131c33, #04081a);
+}
+
+
+.tech-icon {
+    width: 14px;
+    height: 14px;
+    color: #e5e7eb;
+
+    /* Glow similar to the soft lighting effect in pills */
+    filter: drop-shadow(0 0 4px rgba(90, 120, 255, 0.45));
+
+    flex-shrink: 0;
+}
+
+
+.tech-item:hover {
+    background: #30363d;
+}
+
 /* ------------------------------------------------------ */
 /* CONTACT */
 /* ------------------------------------------------------ */
@@ -248,6 +332,146 @@ nav {
     font-weight: 600;
     color: #e5e7eb;
 }
+
+/* ========================= */
+/* FIXED HEADER PHOTO        */
+/* ========================= */
+
+.header-with-photo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Prevent header from becoming huge */
+.header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Text stays on the left */
+.header-text {
+    flex: 1;
+}
+
+.header-photo img {
+    width: 150px;             /* adjust for size */
+    height: 150px;
+    object-fit: cover;        /* ensures perfect crop */
+    object-position: center 20%; /* centers your face better */
+    border-radius: 50%;       /* circular shape */
+    border: 3px solid #d1d5db;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Slight adjustment for small screens */
+@media (max-width: 720px) {
+    .header-photo img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* BUTTON FOR PROJECT PAGES */
+.view-project-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: #1d4ed8;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.view-project-btn:hover {
+    background: #2563eb;
+}
+
+/* PROJECT PAGE STYLING */
+.project-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.project-page h1 {
+    margin-bottom: 0;
+}
+
+.project-img {
+    width: 100%;
+    max-width: 600px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.subnav {
+    padding: 16px 20px;
+    background: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.subnav a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.subnav a:hover {
+    text-decoration: underline;
+}
+
+.video-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.video-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: #1f2937;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid #374151;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.video-btn:hover {
+  background: #111827;
+  transform: translateY(-1px);
+}
+
+.project-dropdown {
+  display: none;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+.project-dropdown.open {
+  display: block;
+}
+
+/* Arrow rotation */
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(90deg);
+}
+
+.dropdown-content.open {
+  display: block;
+}
+
 
 /* ------------------------------------------------------ */
 /* FOOTER */
