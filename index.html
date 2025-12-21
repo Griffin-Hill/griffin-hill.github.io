@@ -6,84 +6,206 @@
     <title>Griffin Hill | Engineering Portfolio</title>
 
     <!-- External CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <script>
-        // Dropdown JS
         function toggleDropdown(id) {
-            const content = document.getElementById(id);
-            const arrow = document.getElementById(id + "-arrow");
+        const content =
+            document.getElementById(id + '-content') ||
+            document.getElementById(id);
 
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                arrow.style.transform = "rotate(0deg)";
-            } else {
-                content.style.display = "block";
-                arrow.style.transform = "rotate(90deg)";
-            }
+        const arrow = document.getElementById(id + '-arrow');
+
+        if (!content) {
+            console.error("Dropdown content not found for:", id);
+            return;
+        }
+
+        content.classList.toggle('open');
+        if (arrow) arrow.classList.toggle('open');
         }
     </script>
+
+
+
 </head>
 
 <body>
 
+<!-- Header of Portfolio -->
 <header>
-    <div class="header-inner">
-        <h1>Griffin Hill</h1>
-        <p>Computer Engineering & Mathematics Student | Embedded Systems | Electronics | Signal Processing</p>
+    <div class="header-inner header-with-photo">
+
+        <div class="header-text">
+            <h1>Griffin Hill</h1>
+            <p>
+                Bachelor of Science in Computer Engineering, Minor in Computer Science and Mathematics.
+                <br> Technical Focus in Embedded Systems, Analog/Diogital Electronics, and Computer Architecture.
+            </p>
+        </div>
+
+        <!-- Headshot Photo -->
+        <div class="header-photo">
+            <img src="headshot.jpg" alt="Griffin Hill Photo">
+        </div>
+
     </div>
 </header>
 
+
+<!-- Navigational tab -->
 <nav>
     <div class="nav-inner">
-        <div class="nav-brand">Portfolio</div>
+        <div class="nav-brand">Engineering Portfolio</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a> <!-- ADDED -->
             <a href="#contact">Contact</a>
         </div>
     </div>
 </nav>
 
+<!-- About me section -->
 <main>
     <section id="about" class="section">
         <div class="section-inner">
             <h2>About Me</h2>
             <p>
-                I am a senior Computer Engineering, Computer Science, and Mathematics student at the University of Oklahoma,
-                specializing in embedded systems, analog/digital electronics, and control systems.
-                I enjoy designing full-stack hardware solutions—from circuit simulation to PCB design
-                to firmware development on the LPC1768 microcontroller.
-            </p>
+                Current Senior at the University of Oklahoma currently pursuing a Bachelor of Science 
+                in Computer Engineering, as well as a Minor in Computer Science and Mathematics. Specializing in embedded 
+                systems, analog/digital electronics, computer architecture, and electrical system design.
+                I enjoy designing full-stack hardware solutions, from circuit simulation and PCB layout
+                to firmware development using Mbed OS. I thrive in collaborative environments and am driven to apply engineering 
+                principles to create innovative, real-world solutions. Whether it’s software development, hardware systems, 
+                or system design, I’m eager to contribute my skills to impactful projects and gain valuable experience that 
+                will help me grow as an engineer.
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="section">
-        <div class="section-inner">
-            <h2>Skills</h2>
-            <div class="skills">
-                <div class="skill-box">Embedded C/C++</div>
-                <div class="skill-box">Mbed OS 6</div>
-                <div class="skill-box">SPI / I2C / PWM</div>
-                <div class="skill-box">Circuit Design</div>
-                <div class="skill-box">Multisim Simulation</div>
-                <div class="skill-box">PCB Layout (Eagle/Fusion)</div>
-                <div class="skill-box">MATLAB & Simulink</div>
-                <div class="skill-box">Java</div>
-                <div class="skill-box">Linear Algebra</div>
-                <div class="skill-box">Signal Processing</div>
-                <div class="skill-box">Oscilloscope & DMM</div>
-                <div class="skill-box">Git/GitHub</div>
+    <div class="section-inner">
+        <h2>Technical Skills</h2>
+
+        <!-- Embedded & Low-Level Programming -->
+        <div class="tech-category">
+            <h3>Embedded & Low-Level Programming</h3>
+            <div class="tech-list">
+                <span class="tech-item">Embedded C / C++</span>
+                <span class="tech-item">Mbed OS 6</span>
+                <span class="tech-item">Register-Level I/O</span>
+                <span class="tech-item">Bitwise & Boolean Operations</span>
+                <span class="tech-item">SPI / I²C / PWM</span>
             </div>
         </div>
-    </section>
+
+        <!-- Electronics & Hardware -->
+        <div class="tech-category">
+            <h3>Electronics & Hardware</h3>
+            <div class="tech-list">
+                <span class="tech-item">Circuit Analysis & Design</span>
+                <span class="tech-item">Oscilloscope, DMM & Logic Analyzer</span>
+                <span class="tech-item">Computer Architecture/Hardware</span>
+            </div>
+        </div>
+
+        <!-- Software -->
+        <div class="tech-category">
+            <h3>Software</h3>
+            <div class="tech-list">
+                <span class="tech-item">C++</span>
+                <span class="tech-item">Java</span>
+                <span class="tech-item">HTML / CSS</span>
+                <span class="tech-item">Data Structures & Algorithms</span>
+                <span class="tech-item">Algorithmic Complexity</span>
+            </div>
+        </div>
+
+        <!-- Modeling, Signals & Simulation -->
+        <div class="tech-category">
+            <h3>Modeling & Simulation</h3>
+            <div class="tech-list">
+                <span class="tech-item">Multisim Simulation</span>
+                <span class="tech-item">PCB Layout (Eagle / Fusion)</span>
+                <span class="tech-item">MATLAB / Simulink</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
     <section id="projects" class="section">
         <div class="section-inner">
             <h2>Projects</h2>
 
-            <!-- PROJECT 1 -->
+            <!-- PROJECT 1 - Analog PID Cruise Control Simulator -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleDropdown('p5')">
+                    <div>
+                        <h3>Analog PID Cruise Control Simulator</h3>
+                        <p class="project-meta">Fall 2025 · Analog Control Systems Project</p>
+                    </div>
+                    <div id="p5-arrow" class="dropdown-arrow">▶</div>
+                </div>
+
+                <div id="p5" class="dropdown-content">
+                    <p>
+                        As an individual project in for my electronics labratory, I built an analog 
+                        PID controller to regulate the speed of a simulated DC Voltage (representing a 
+                        vehicle cruise-control system). Implemented Proportional, Integral, and Derivative 
+                        feedback using op-amp active circuits and validated stability using step-response tests.
+                    </p>
+
+                    <p class="attached-title">Attached Files</p>
+                    <ul class="attachment-list">
+                        <li><a href="Individual Project Report.pdf">Final Report (PDF)</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- PROJECT 2 - LINE FOLLOWER -->
+            <div class="project-card">
+            <div class="project-header" onclick="toggleDropdown('p6')">
+                <div>
+                <h3>Line-Tracing Robot – Analog Motor Control System</h3>
+                <p class="project-meta">Fall 2025 · Analog Systems Project</p>
+                </div>
+
+                <div id="p6-arrow" class="dropdown-arrow">▶</div>
+            </div>
+
+            <!-- DROPDOWN CONTENT -->
+            <div id="p6-content" class="project-dropdown">
+                <div class="video-links">
+                <p> 
+                    As an analog systems project, a group of my classmates and I designed and implemented a 
+                    line-tracing robot using continuous-time motor control. Infrared sensors were used to detect 
+                    track position and generate an error signal, which was processed through analog control circuitry to 
+                    dynamically adjust motor speed and direction. The system demonstrates closed-loop feedback, 
+                    stability, and real-time response, highlighting how classical control techniques can be 
+                    applied to autonomous robotic navigation without the use of a microcontroller.
+                </p>
+                
+                <a class="video-btn"
+                    href="https://www.youtube.com/watch?v=ZgWqvlGitgU"
+                    target="_blank" rel="noopener">
+                    ▶ Watch Cruise Control Demo
+                </a>
+
+                <a class="video-btn"
+                    href="https://youtu.be/EEBY4pvcX5k"
+                    target="_blank" rel="noopener">
+                    ▶ Watch Sensor Demo
+                </a>
+                </div>
+            </div>
+            </div>
+
+            <!-- PROJECT 3 - Portable Solar Adapter -->
             <div class="project-card">
                 <div class="project-header" onclick="toggleDropdown('p1')">
                     <div>
@@ -102,14 +224,14 @@
 
                     <p class="attached-title">Attached Files</p>
                     <ul class="attachment-list">
-                        <li><a href="#">PCB Report (PDF)</a></li>
-                        <li><a href="#">Schematic Image</a></li>
-                        <li><a href="#">Testing Photos</a></li>
+                        <li><a href="#">Deliverables Coming Soon</a></li>
                     </ul>
+
                 </div>
             </div>
 
-            <!-- PROJECT 2 -->
+
+            <!-- PROJECT 4 - Reaction Time Game -->
             <div class="project-card">
                 <div class="project-header" onclick="toggleDropdown('p2')">
                     <div>
@@ -128,14 +250,13 @@
 
                     <p class="attached-title">Attached Files</p>
                     <ul class="attachment-list">
-                        <li><a href="#">Full Source Code</a></li>
-                        <li><a href="#">Wiring Diagram</a></li>
-                        <li><a href="#">Demo Video</a></li>
+                        <li><a href="#">Deliverables Coming Soon</a></li>
                     </ul>
+
                 </div>
             </div>
 
-            <!-- PROJECT 3 -->
+            <!-- PROJECT 5 - Light Dimmer Controller -->
             <div class="project-card">
                 <div class="project-header" onclick="toggleDropdown('p3')">
                     <div>
@@ -154,18 +275,17 @@
 
                     <p class="attached-title">Attached Files</p>
                     <ul class="attachment-list">
-                        <li><a href="#">Code Repository</a></li>
-                        <li><a href="#">7-Segment Pattern Table (PDF)</a></li>
-                        <li><a href="#">Circuit Build Photos</a></li>
+                        <li><a href="#">Deliverables Coming Soon</a></li>
                     </ul>
+
                 </div>
             </div>
 
-            <!-- PROJECT 4 -->
+            <!-- PROJECT 6 - Continuous Wave Modulations and Demodulation Kit -->
             <div class="project-card">
                 <div class="project-header" onclick="toggleDropdown('p4')">
                     <div>
-                        <h3>AM Demodulation Toolkit – MATLAB + Fourier Analysis</h3>
+                        <h3>Continuous Wave Modulations and Demodulation Kit</h3>
                         <p class="project-meta">Fall 2025 · Signal Processing Project</p>
                     </div>
                     <div id="p4-arrow" class="dropdown-arrow">▶</div>
@@ -173,29 +293,50 @@
 
                 <div id="p4" class="dropdown-content">
                     <p>
-                        Implemented FFT-based analysis, low-pass filtering, and envelope detection
-                        to demodulate hidden AM audio signals. Produced full mathematical derivations 
-                        and generated recovered audio plots.
+                        As a project in my Signals and Systems class in the Fall of 2025, Jonathan Gross 
+                        (classmate) and I were tasked with implementing FFT-based analysis, low-pass filters, 
+                        and envelope detection to demodulate hidden AM audio signals. Produced full 
+                        mathematical derivations and generated recovered audio plots.
                     </p>
 
                     <p class="attached-title">Attached Files</p>
                     <ul class="attachment-list">
-                        <li><a href="#">Final Report (PDF)</a></li>
-                        <li><a href="#">MATLAB Scripts</a></li>
-                        <li><a href="#">Spectrogram Images</a></li>
+                        <li><a href="Continuous Wave Modulation and Demodulation Kit.pdf">Final Report (PDF)</a></li>
                     </ul>
+
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!------------------------------- Resume Section ------------------------------->
+    <section id="resume" class="section">
+        <div class="section-inner">
+            <h2>Resume</h2>
+            <p>You can view or download my resume below:</p>
+
+            <!-- PDF Preview -->
+            <iframe src="Resume 2025, Griffin Hill.pdf" class="resume-frame"></iframe>
+
+            <!-- PDF Download Button -->
+            <a class="resume-download" href="Resume 2025, Griffin Hill.pdf" download> <br> Download Resume (PDF)</a>
+        </div>
+    </section>
+
     <section id="contact" class="section">
         <div class="section-inner">
             <h2>Contact</h2>
-            <p>Email: <strong>[your email]</strong></p>
-            <p>LinkedIn: <strong>[your link]</strong></p>
-            <p>GitHub: <strong>[your link]</strong></p>
+            <p>Email: <strong>hillgri48@gmail.com</strong></p>
+            <p>Phone: <strong>(936) 697-5225</strong></p>
+            <p>LinkedIn: 
+                <a class="contact-link" 
+                href="https://www.linkedin.com/in/griffin-hill-549956304/" 
+                target="_blank">
+                View My LinkedIn Profile
+                </a>
+            </p>
+            
         </div>
     </section>
 </main>
